@@ -186,6 +186,24 @@ function generatePassword() {
       Array.prototype.push.apply(totalCharacters, lowerCaseCharacters);
     };
    
+// Empty string to be filled based on the for-loop selecting random characters from the array for password
+var randomPassword = ""
+      
+for (var i = 0; i < confirmLength; i++) {
+  randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  console.log(randomPassword)
+}
+return randomPassword;
+}
+
+// Write password to the #password input
+function writePassword() {
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
+
+passwordText.value = password;
+
+
 
   }
  // Event listener to call the password function on click
