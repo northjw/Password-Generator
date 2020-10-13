@@ -131,9 +131,16 @@ var characterCount = " ";
 
 
 
-// ==============  function definitions  ==============  
-function getUserOptions() {
+// Prompt will pop-up to ask how many characters the user would like in their password-->
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like your password to contain? Must be between 8 - 128 characters"));
 
+ // Loop if answer is outside the password criteria-->
+  while(confirmLength <= 8 || confirmLength >= 128) {
+    // this message will pop up if they entered a number <8 or >128 -->
+      alert("Password length must be between 8-128 characters, re-enter amount of characters");
+      var confirmLength = (prompt("How many characters would you like your password to contain?"));
+      } 
 
-
-}
+      // recive alert of how many charactes the user will have in your password --> 
+      alert(`Your password will have ${confirmLength} characters`);
