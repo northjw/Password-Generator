@@ -41,6 +41,23 @@ var specialCharacters = [
   "_",
   "."
 ];
+
+// Array of numeric characters to be included in password
+
+var numericCharacters = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+];
+
+
 // Array of UPPERCASE characters to be included in password
 
 var upperCaseCharacters = [
@@ -106,27 +123,18 @@ var lowerCaseCharacters = [
 
 ];
 
-// Array of numeric characters to be included in password
 
-var lowerCaseCharacters = [
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
 
-];
+
 var totalCharacters = [];
 
-var confirmUppercase = " ";
-var confirmLowercase = " ";
-var confirmNumbers = " ";
-var confirmSpecial = " ";
+
+var confirmSpecialCharacters = " ";
+var confirmNumericCharacters = " ";
+var confirmupperCaseCharacters = " ";
+var confirmlowerCaseCharacters = " ";
+
+
 var characterCount = " ";
 
 
@@ -144,3 +152,19 @@ function generatePassword() {
 
       // recive alert of how many charactes the user will have in your password --> 
       alert(`Your password will have ${confirmLength} characters`);
+
+
+      // Define characters used in password 
+     var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
+     var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");
+     //    
+     var confirmlowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
+     var confirmupperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");
+      // Loop if answer is outside the criteria 
+      while(confirmupperCaseCharacters === false && confirmlowerCaseCharacters === false && confirmSpecialCharacters === false && confirmNumericCharacters === false) {
+        alert("You must choose at least one parameter");
+        var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
+        var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");    
+        var confirmlowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
+        var confirmupperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");   
+    } }
