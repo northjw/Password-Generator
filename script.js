@@ -168,3 +168,5 @@ function generatePassword() {
         var confirmlowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
         var confirmupperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");   
     } }
+
+    
