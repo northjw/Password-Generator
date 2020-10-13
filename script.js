@@ -168,44 +168,6 @@ function generatePassword() {
     var confirmUpperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");
   }
 
-  // Function to create an array with the password characters
-  function createFinalArray() {
-    if (confirmSpecial) {
-      Array.prototype.push.apply(totalCharacters, specialCharacters);
-    };
-
-    if (confirmNumbers) {
-      Array.prototype.push.apply(totalCharacters, numericCharacters);
-    };
-
-    if (confirmUppercase) {
-      Array.prototype.push.apply(totalCharacters, upperCaseCharacters);
-    };
-
-    if (confirmLowercase) {
-      Array.prototype.push.apply(totalCharacters, lowerCaseCharacters);
-    };
-   
-// Empty string to be filled based on the for-loop selecting random characters from the array for password
-var randomPassword = ""
-      
-for (var i = 0; i < confirmLength; i++) {
-  randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-  console.log(randomPassword)
-}
-return randomPassword;
-}
-
-// Write password to the #password input
-function writePassword() {
-var password = generatePassword();
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password;
-
-
-
-  }
  // Event listener to call the password function on click
  generateBtn.addEventListener("click", writePassword);
  
