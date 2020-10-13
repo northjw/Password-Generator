@@ -188,7 +188,8 @@ function generatePassword() {
    
 
   }
-
+ // Event listener to call the password function on click
+ generateBtn.addEventListener("click", writePassword);
  
 
 }
