@@ -131,8 +131,8 @@ var totalCharacters = [];
 
 var confirmSpecialCharacters = " ";
 var confirmNumericCharacters = " ";
-var confirmupperCaseCharacters = " ";
-var confirmlowerCaseCharacters = " ";
+var confirmUpperCaseCharacters = " ";
+var confirmLowerCaseCharacters = " ";
 
 
 var characterCount = " ";
@@ -143,30 +143,54 @@ var characterCount = " ";
 function generatePassword() {
   var confirmLength = (prompt("How many characters would you like your password to contain? Must be between 8 - 128 characters"));
 
- // Loop if answer is outside the password criteria-->
-  while(confirmLength <= 8 || confirmLength >= 128) {
+  // Loop if answer is outside the password criteria-->
+  while (confirmLength <= 8 || confirmLength >= 128) {
     // this message will pop up if they entered a number <8 or >128 -->
-      alert("Password length must be between 8-128 characters, re-enter amount of characters");
-      var confirmLength = (prompt("How many characters would you like your password to contain?"));
-      } 
+    alert("Password length must be between 8-128 characters, re-enter amount of characters");
+    var confirmLength = (prompt("How many characters would you like your password to contain?"));
+  }
 
-      // recive alert of how many charactes the user will have in your password --> 
-      alert(`Your password will have ${confirmLength} characters`);
+  // recive alert of how many charactes the user will have in your password --> 
+  alert(`Your password will have ${confirmLength} characters`);
 
 
-      // Define characters used in password 
-     var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
-     var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");
-     //    
-     var confirmlowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
-     var confirmupperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");
-      // Loop if answer is outside the criteria 
-      while(confirmupperCaseCharacters === false && confirmlowerCaseCharacters === false && confirmSpecialCharacters === false && confirmNumericCharacters === false) {
-        alert("You must choose at least one parameter");
-        var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
-        var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");    
-        var confirmlowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
-        var confirmupperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");   
-    } }
+  // Define characters used in password 
+  var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
+  var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");
+  var confirmLowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
+  var confirmUpperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");
+  // Loop if answer is outside the criteria 
+  while (confirmUpperCaseCharacters === false && confirmLowerCaseCharacters === false && confirmSpecialCharacters === false && confirmNumericCharacters === false) {
+    alert("You must choose at least one parameter");
+    var confirmSpecialCharacters = confirm("Click OK to confirm if you would like to include special characters");
+    var confirmNumericCharacters = confirm("Click OK to confirm if you would like to include numeric characters");
+    var confirmLowerCaseCharacters = confirm("Click OK to confirm if you would like to include lowercase characters");
+    var confirmUpperCaseCharacters = confirm("Click OK to confirm if you would like to include uppercase characters");
+  }
 
-    
+  // Function to create an array with the password characters
+  function createFinalArray() {
+    if (confirmSpecial) {
+      Array.prototype.push.apply(totalCharacters, specialCharacters);
+    };
+
+    if (confirmNumbers) {
+      Array.prototype.push.apply(totalCharacters, numericCharacters);
+    };
+
+    if (confirmUppercase) {
+      Array.prototype.push.apply(totalCharacters, upperCaseCharacters);
+    };
+
+    if (confirmLowercase) {
+      Array.prototype.push.apply(totalCharacters, lowerCaseCharacters);
+    };
+   
+
+  }
+
+ 
+
+}
+
+
